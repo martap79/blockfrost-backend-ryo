@@ -5,7 +5,7 @@ import fastify, { FastifyInstance, FastifyRequest } from 'fastify';
 import os from 'os';
 import { getConfig } from './config';
 import { registerRoute } from './utils/common';
-import { errorHandler, notFoundHandler, handle400Custom } from './utils/error-handler';
+import { errorHandler, notFoundHandler } from './utils/error-handler';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const packageJson = require('../package.json');
@@ -26,13 +26,10 @@ const start = (options = {}): FastifyInstance => {
     });
   }
 
-  // handle cbor and multipart media types
-  app.addContentTypeParser(
-    ['application/cbor', 'multipart/form-data'],
-    (_request: FastifyRequest, payload, done) => {
-      done(null, payload);
-    },
-  );
+  // handle cbor media type
+  app.addContentTypeParser(['application/cbor'], (_request: FastifyRequest, payload, done) => {
+    done(null, payload);
+  });
 
   // ORDERING BASED ON https://www.fastify.io/docs/latest/Guides/Getting-Started/#loading-order-of-your-plugins
   // Note: We don't use custom decorators and hooks (parts 3-4 from ^)
@@ -46,11 +43,7 @@ const start = (options = {}): FastifyInstance => {
   });
 
   app.setNotFoundHandler((request, reply) => {
-    if (request.url === '/utils/txs/evaluate' || request.url === '/tx/submit') {
-      handle400Custom(reply, 'Path not supported in RYO.');
-    } else {
-      notFoundHandler(request, reply);
-    }
+    notFoundHandler(request, reply);
   });
 
   app.register(fastifyPostgres, {
