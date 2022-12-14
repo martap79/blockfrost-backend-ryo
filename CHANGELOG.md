@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- error message in `/utils/txs/evaluate` and `/tx/submit`
 - increased token registry timeout to 5s -> 10s
 
 ### Fixed
