@@ -50,7 +50,6 @@
   "devDependencies": {
     "@types/config": "3.3.0",
     "@types/express": "^4.17.14",
-    "@types/jsonstream": "^0.8.30",
     "@types/node": "^18.7.15",
     "@types/pg": "^8.6.5",
     "@types/pg-format": "^1.0.2",
