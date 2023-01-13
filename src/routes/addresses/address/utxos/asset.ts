@@ -1,14 +1,14 @@
-import { handleInvalidAsset } from '@blockfrost/blockfrost-utils/lib/fastify';
-import { validateAsset } from '@blockfrost/blockfrost-utils/lib/validation';
+import { handleInvalidAsset } from '@blockfrost/blockfrost-utils/lib/fastify.js';
+import { validateAsset } from '@blockfrost/blockfrost-utils/lib/validation.js';
 import { getSchemaForEndpoint } from '@blockfrost/openapi';
 import { FastifyInstance, FastifyRequest } from 'fastify';
 
-import { SQLQuery } from '../../../../sql';
-import * as QueryTypes from '../../../../types/queries/addresses';
-import * as ResponseTypes from '../../../../types/responses/addresses';
-import { getDbSync } from '../../../../utils/database';
-import { handle404, handleInvalidAddress } from '../../../../utils/error-handler';
-import { getAddressTypeAndPaymentCred } from '../../../../utils/validation';
+import { SQLQuery } from '../../../../sql/index.js';
+import * as QueryTypes from '../../../../types/queries/addresses.js';
+import * as ResponseTypes from '../../../../types/responses/addresses.js';
+import { getDbSync } from '../../../../utils/database.js';
+import { handle404, handleInvalidAddress } from '../../../../utils/error-handler.js';
+import { getAddressTypeAndPaymentCred } from '../../../../utils/validation.js';
 
 async function route(fastify: FastifyInstance) {
   fastify.route({

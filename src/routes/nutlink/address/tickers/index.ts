@@ -1,12 +1,12 @@
 import { FastifyInstance, FastifyRequest } from 'fastify';
-import * as QueryTypes from '../../../../types/queries/nutlink';
-import * as ResponseTypes from '../../../../types/responses/nutlink';
+import * as QueryTypes from '../../../../types/queries/nutlink.js';
+import * as ResponseTypes from '../../../../types/responses/nutlink.js';
 import { getSchemaForEndpoint } from '@blockfrost/openapi';
-import { getDbSync } from '../../../../utils/database';
+import { getDbSync } from '../../../../utils/database.js';
 
-import { handle404, handleInvalidAddress } from '../../../../utils/error-handler';
-import { getAddressTypeAndPaymentCred } from '../../../../utils/validation';
-import { SQLQuery } from '../../../../sql';
+import { handle404, handleInvalidAddress } from '../../../../utils/error-handler.js';
+import { getAddressTypeAndPaymentCred } from '../../../../utils/validation.js';
+import { SQLQuery } from '../../../../sql/index.js';
 
 async function route(fastify: FastifyInstance) {
   fastify.route({

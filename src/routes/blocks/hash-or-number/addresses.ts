@@ -1,14 +1,14 @@
 import { FastifyInstance, FastifyRequest } from 'fastify';
-import * as QueryTypes from '../../../types/queries/blocks';
-import { getDbSync } from '../../../utils/database';
+import * as QueryTypes from '../../../types/queries/blocks.js';
+import { getDbSync } from '../../../utils/database.js';
 import { getSchemaForEndpoint } from '@blockfrost/openapi';
-import { handle400Custom, handle404 } from '../../../utils/error-handler';
+import { handle400Custom, handle404 } from '../../../utils/error-handler.js';
 import {
   validatePositiveInRangeSignedInt,
   validateBlockHash,
   isNumber,
-} from '../../../utils/validation';
-import { SQLQuery } from '../../../sql';
+} from '../../../utils/validation.js';
+import { SQLQuery } from '../../../sql/index.js';
 
 async function route(fastify: FastifyInstance) {
   fastify.route({

@@ -2,7 +2,7 @@ import {
   getEndpointFromUrl,
   getAdditionalParametersFromRequest,
   sortKeysInObject,
-} from '../../../../src/utils/string-utils';
+} from '../../../../src/utils/string-utils.js';
 import { describe, expect, test } from 'vitest';
 
 describe('stringUtils', () => {

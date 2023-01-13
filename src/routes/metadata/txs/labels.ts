@@ -1,8 +1,8 @@
 import { FastifyInstance, FastifyRequest } from 'fastify';
-import * as QueryTypes from '../../../types/queries/metadata';
-import * as ResponseTypes from '../../../types/responses/metadata';
-import { getDbSync } from '../../../utils/database';
-import { SQLQuery } from '../../../sql';
+import * as QueryTypes from '../../../types/queries/metadata.js';
+import * as ResponseTypes from '../../../types/responses/metadata.js';
+import { getDbSync } from '../../../utils/database.js';
+import { SQLQuery } from '../../../sql/index.js';
 import { getSchemaForEndpoint } from '@blockfrost/openapi';
 
 async function route(fastify: FastifyInstance) {

@@ -1,10 +1,10 @@
 import { FastifyInstance, FastifyRequest } from 'fastify';
-import * as QueryTypes from '../../../../../types/queries/metadata';
-import * as ResponseTypes from '../../../../../types/responses/metadata';
-import { getDbSync } from '../../../../../utils/database';
-import { handle400Custom, handle404 } from '../../../../../utils/error-handler';
-import { validatePositiveInRangeSignedBigInt } from '../../../../../utils/validation';
-import { SQLQuery } from '../../../../../sql';
+import * as QueryTypes from '../../../../../types/queries/metadata.js';
+import * as ResponseTypes from '../../../../../types/responses/metadata.js';
+import { getDbSync } from '../../../../../utils/database.js';
+import { handle400Custom, handle404 } from '../../../../../utils/error-handler.js';
+import { validatePositiveInRangeSignedBigInt } from '../../../../../utils/validation.js';
+import { SQLQuery } from '../../../../../sql/index.js';
 import { getSchemaForEndpoint } from '@blockfrost/openapi';
 
 async function route(fastify: FastifyInstance) {
